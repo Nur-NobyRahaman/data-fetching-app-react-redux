@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllTodos } from "./components/actions/TodosActions";
+import { Route, Routes } from "react-router";
+import CounterApp from "./components/CounterApp";
+import TodoApp from "./components/TodoApp";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to react redux</h1>
+      <Header></Header>
+      <Routes>
+        <Route path="/" element={<TodoApp/>}></Route>
+        <Route path="/counterApp" element={<CounterApp/>}></Route>
+      </Routes>
     </div>
   );
 }
